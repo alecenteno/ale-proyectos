@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet"  href="{{ URL::asset('css/bootstrap.min.css') }}" >-->
+<   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <title>Clientes VUE</title>
+</head>
+<body>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <br>  Formulario para nuevo Cliente y Editar </br>
+                  <span class="label label-default"> Ingrese nombre:</span>
+                  <input type="text">
+
+                  <span class="label label-default"> Ingrese apellido:</span>
+                  <input type="text">
+
+                  <span class="label label-default"> Ingrese estado:</span>
+                  <input type="number">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="ml-md-auto">
+                <nav class="nav">
+                    <br>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Nuevo Cliente</button>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <div id="app">
+                <table class="table table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Estado</th>
+                                <th>Creado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr v-for="cliente of clientes" >
+                                <th>{{cliente.codigo}}</th>
+                                <th>{{cliente.nombre}}</th>
+                                <th>{{cliente.apellido}}</th>
+                                <th>{{cliente.estado}}</th>
+                                <th>{{cliente.creado}}</th>
+                                <th>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Editar</button>
+                                       <!-- <button type="button" class="btn btn-danger" @click="deleteCliente(cliente.codigo)">Eliminar</button>-->
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <script src="vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="js/comsumoAPI.js"></script>
+    <script src="js/cliente.js"></script>
+</body>
+</html>
